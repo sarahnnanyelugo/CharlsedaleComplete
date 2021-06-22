@@ -270,7 +270,7 @@ padding-top:40px;
 
 }
 .title-box2{
-    min-height:450px;
+    min-height:30px;
     background-color:black;
     opacity:0;
     color:white;
@@ -286,7 +286,7 @@ padding-top:40px;
     opacity:0.5;
 }
 .title-box3{
-    min-height:450px;
+    min-height:30px;
     background-color:black;
     opacity:0;
     color:white;
@@ -546,8 +546,8 @@ padding-top:40px;
 	/* padding: 20px; */
 	color: black;
     border-radius:10px;
-    height:90px;
-    width:90px;
+    height:60px;
+    width:60px;
     margin-top:65px;
     margin-left:10px;
     font-size:7px;
@@ -571,8 +571,8 @@ padding-top:40px;
 	/* padding: 20px; */
 	color: black;
     border-radius:10px;
-    height:90px;
-    width:90px;
+    height:60px;
+    width:60px;
     margin-top:35px;
     margin-right:10px;
     font-size:8px;
@@ -596,8 +596,8 @@ padding-top:40px;
 	/* padding: 20px; */
 	color: black;
     border-radius:10px;
-    height:90px;
-    width:90px;
+    height:60px;
+    width:60px;
     margin-top:65px;
     margin-right:0px;
     font-size:8px;
