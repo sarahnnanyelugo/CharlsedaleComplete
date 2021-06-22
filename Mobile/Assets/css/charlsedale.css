@@ -270,14 +270,14 @@ padding-top:40px;
 
 }
 .title-box2{
-    min-height:30px;
+    min-height:70px;
     background-color:black;
     opacity:0;
     color:white;
     padding:40px 0 40px 0;
     text-align:center;
-    font-size:30px;
-    margin-top:-450px;
+    font-size:12px;
+    margin-top:-160px;
     z-index:2;
     transition: .5s ease;
 }
@@ -286,14 +286,14 @@ padding-top:40px;
     opacity:0.5;
 }
 .title-box3{
-    min-height:30px;
+    min-height:80px;
     background-color:black;
     opacity:0;
     color:white;
     padding:40px 0 40px 0;
     text-align:center;
-    font-size:30px;
-    margin-top:-450px;
+    font-size:12px;
+    margin-top:-170px;
     z-index:2;
     transition: .5s ease;
 }
@@ -546,8 +546,8 @@ padding-top:40px;
 	/* padding: 20px; */
 	color: black;
     border-radius:10px;
-    height:60px;
-    width:60px;
+    height:85px;
+    width:80px;
     margin-top:65px;
     margin-left:10px;
     font-size:7px;
@@ -571,8 +571,8 @@ padding-top:40px;
 	/* padding: 20px; */
 	color: black;
     border-radius:10px;
-    height:60px;
-    width:60px;
+    height:85px;
+    width:80px;
     margin-top:35px;
     margin-right:10px;
     font-size:8px;
@@ -596,8 +596,8 @@ padding-top:40px;
 	/* padding: 20px; */
 	color: black;
     border-radius:10px;
-    height:60px;
-    width:60px;
+    height:85px;
+    width:80px;
     margin-top:65px;
     margin-right:0px;
     font-size:8px;
