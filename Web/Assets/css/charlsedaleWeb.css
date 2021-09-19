@@ -288,24 +288,26 @@ font-size:10px;
 
 }
 #musicRoom{
-    margin-left:90px;
+    margin-left:40px;
 
 }
 #commentbox1{
-    margin-left:30px;
-    margin-top:-40px;
+    margin-left:-40px;
+    margin-top:-40px !important;
+    max-height:650px;
+    /* overflow:hidden; */
     /* display:flex; */
 }
 
 #award{
-    margin-left:0px;
+    margin-left:-45px;
     margin-top:100px;
     z-index:2;
 }
 
 #commentbox2{
-    margin-left:-50px;
-    margin-top:80px;
+    margin-left:-60px !important;
+    margin-top:40px;
     margin-bottom:80px;
 }
 
@@ -314,6 +316,19 @@ font-size:10px;
     /* margin-left:1150px; */
     margin-top:60px;
     margin-bottom:40px;
+}
+.IG{
+  max-height:350px;
+  overflow:hidden;
+
+}
+.elfsight-app-2ac4be52-9ae7-4fe3-a9b5-27ed35e62567{
+top:-60px;
+position:relative;
+}
+.elfsight-app-951b8afe-891c-4a2a-9f98-d8f28843b26e{
+top:-60px !important;
+/* position:relative; */
 }
 .hover{
 
