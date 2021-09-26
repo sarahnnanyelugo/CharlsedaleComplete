@@ -191,6 +191,8 @@ padding-left:15px;
     height:560px;
     float:right;
     margin-top:-480px;
+    margin-right:-14px !important;
+    padding-right:0px !important;
 }
 .grid{
     height:40px;
