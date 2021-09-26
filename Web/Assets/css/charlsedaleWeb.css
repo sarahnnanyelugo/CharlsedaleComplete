@@ -142,7 +142,7 @@ padding-left:15px;
 } */
 
 #mission img{
-    height:560px;
+    /* height:560px; */
     margin-top:50px;
 
 }
@@ -154,15 +154,15 @@ padding-left:15px;
     padding-bottom:10px;
 }
 #mission small{
-    float:right;
+    /* float:right; */
     font-size:15px;
-    margin-right:140px;
+    /* margin-right:140px; */
     margin-top:0px;
 }
 #mission a{
  /* margin-bottom:400px; */
  font-size:11px;
- float:right;
+ /* float:right; */
  /* margin-right:100px; */
 
 
