@@ -18,6 +18,20 @@
   font-family: Avenir-Heavy;
   src: url("../img/Fonts/Avenir-Font/avenir-ff/AvenirLTStd-Roman.otf");
 }
+@font-face{
+  font-family:Avenir-Black;
+  src: url("/../img/Fonts/Avenir-Font/avenir_ff");
+}
+@font-face{
+  font-family:Avenir-Light;
+  src:url("../img/Fonts/tw2br-ov8hg");
+
+}
+
+@font-face{
+  font-family:Avenir-medium;
+  src:url("../img/Fonts/tw2br-ov8hg");
+}
 body{
 font-family:MinionPro-Bold !important;
 }
