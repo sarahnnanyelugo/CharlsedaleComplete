@@ -135,7 +135,7 @@ font-family:MinionPro-Bold !important;
     min-height:310px;
     width:40%;
     border-top-right-radius:93%;
-    opacity:0.7;
+    opacity:0.9;
     color:white;
     padding:20px 0 20px 0;
     padding-top:85px;
@@ -191,6 +191,7 @@ padding-left:15px;
 #welcomeAdd{
     margin-left:110px;
     margin-top:200px;
+
 }
 #welcomeAdd p{
     margin-top:-30px;
@@ -217,7 +218,7 @@ padding-left:15px;
 .grid{
     height:40px;
     background-color:black;
-    opacity:0.7;
+    opacity:0.5;
     text-align:center;
     font-size:15px;
     margin-top:-40px;
@@ -226,23 +227,26 @@ padding-left:15px;
     color:white;
     position:relative;
     overflow:hidden;
+
+
 }
 .grid h4{
   padding-top:5px;
 }
 
 .grid:hover{
-    opacity:0.7;
-    height:225px;
-    margin-top:-225px;
+    opacity:0.8;
+    height:227px;
+    margin-top:-227px;
     padding-top:30px;
     background-color:rgb(43, 43, 82);
+
 }
 .grid2{
     height:40px;
     width:410px;
     background-color:black;
-    opacity:0.7;
+    opacity:0.5;
     text-align:center;
     font-size:16px;
     margin-top:-40px;
@@ -251,9 +255,10 @@ padding-left:15px;
     color:white;
     position:relative;
     overflow:hidden;
+
 }
 .grid2:hover{
-    opacity:0.7;
+    opacity:0.8;
     height:270px;
     width:410px;
     margin-top:-270px;
@@ -286,6 +291,7 @@ border:1px solid white !important;
     margin-top:230px;
     /* display:flex; */
     margin-left:-15px;
+    font-family:Avenir-Book;
 
 }
 #b-castle a{
@@ -354,6 +360,7 @@ font-size:10px;
   padding-top:40px !important;
   width:100% !important;
   margin-bottom:60px;
+  font-family:Avenir-Book;
 }
 #keyfacts p{
 color:rgb(7, 7, 73);
@@ -442,6 +449,7 @@ top:-60px !important;
     background-image:url("../img/eventsbg.png");
     color:white;
     padding:80px 0px 150px 80px !important;
+    font-family:Avenir-Book;
     margin-top:100px;
 
 }
@@ -688,7 +696,7 @@ width:20px;
     width:270px;
     margin-top:-85px;
     margin-right:10px;
-    font-size:11px;
+    font-size:12px;
 }
 
 .comment-box::after {
@@ -713,7 +721,7 @@ width:20px;
     width:270px;
     margin-top:-15px;
     margin-right:10px;
-    font-size:11px;
+    font-size:12px;
 }
 
 .comment-box2::after {
@@ -738,7 +746,7 @@ width:20px;
     width:270px;
     margin-top:-140px;
     margin-right:10px;
-    font-size:11px;
+    font-size:12px;
 }
 
 .comment-box3::after {
@@ -756,12 +764,15 @@ width:20px;
     margin-top:200px;
     padding-left:100px !important;
     margin-bottom:120px;
+    font-family:Avenir-Book;
+
 }
 
 #carouselComment2{
     margin-top:200px;
     padding-left:100px !important;
     margin-bottom:120px;
+    font-family:Avenir-Book;
 }
 
 #commentBackground{
