@@ -188,6 +188,7 @@ margin-left:-10px;
     background-color:#f5f5f5 !important;
     text-align: center;
     font-size:12px;
+    padding-bottom:40px;
     /* padding-bottom: 25px; */
 }
 .graybg h5{
@@ -205,21 +206,6 @@ margin-left:-10px;
 
 
 
-/* .title-box{
-    min-height:30px;
-    background-color:black;
-    opacity:0;
-    color:white;
-    padding:5px 0 5px 0;
-    font-size:13px;
-    margin-top:-30px;
-    z-index:2;
-    transition: .5s ease;
-}
-
-.title-box:hover{
-    opacity:0.7;
-} */
 
 .grid{
     height:40px;
@@ -265,6 +251,7 @@ margin-left:-10px;
     color:#191A1D;
     font-family:Minion Pro, Arial, Helvetica, sans-serif ;
     font-weight:bold;
+    margin-top:30px;
 }
 
 #bluebg{
