@@ -394,7 +394,45 @@ padding-top:40px;
     border-radius: 2%;
 }
 
+.active1, .dot1:hover {
+    background-color: white;
+  }
 
+  .fade1 {
+    -webkit-animation-name:fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  .dot1{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color:transparent;
+    border:solid 1px white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  .mySlides1 {
+    display:none;
+  }
 #events{
 
     padding-top:10px;
@@ -483,13 +521,14 @@ padding-top:40px;
 
 
 #sparents{
-   padding-left: 40px;
+   /* padding-left: 40px;
    height:fit-content;
-   margin-top: 0%;
+   margin-top: 0%; */
    background-color: #f5f5f5;
-   text-align: center;
+   /* text-align: center;
    padding-right: 20px;
-   padding-bottom: 45px;
+   padding-bottom: 45px; */
+   display:flex;
    border-bottom:solid 1px #91919B;
 
 
@@ -502,13 +541,14 @@ padding-top:40px;
 }
 
 #certs{
-    padding-left: 40px;
-    height:fit-content;
-    margin-top: 0%;
+    /* padding-left: 40px;
+
+    margin-top:0px;
     background-color: #f5f5f5;
     text-align: center;
     padding-right: 20px;
-    padding-bottom: 45px;
+    padding-bottom: 25px; */
+    display:flex;
     border-bottom:solid 1px grey;
 }
 
@@ -518,13 +558,14 @@ padding-top:40px;
 }
 
 #activities{
-    padding-left: 40px;
+    /* padding-left: 40px;
     height:fit-content;
-    margin-top: 0%;
+    margin-top: 0%; */
     background-color: #f5f5f5;
-    text-align: center;
+    /* text-align: center;
     padding-right: 20px;
-    padding-bottom: 45px;
+    padding-bottom: 45px; */
+    display:flex;
     border-bottom:solid 1px grey;
 }
 
@@ -538,7 +579,7 @@ padding-top:40px;
     height:fit-content;
     background-color:#f5f5f5;
     text-align: center;
-    padding-top:50px;
+    padding-top:0px;
     margin-bottom:25px;
 
 }
