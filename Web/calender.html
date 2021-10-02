@@ -13,7 +13,9 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+	 <script src="../jquery.min.js"></script>
+
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -380,7 +382,7 @@
 
 
 
-		<footer>
+		<footer  style="margin-top:60px !important">
             <div class="row">
                 <div class="col-md-12" style="background-color:#0b2975; color:white; display:flex">
                     <div class="col-md-4" style="padding:30px">
@@ -492,18 +494,18 @@
     </body>
 
 <script>
-    /*!
- * FullCalendar v1.6.4
- * Docs & License: http://arshaw.com/fullcalendar/
- * (c) 2013 Adam Shaw
- */
+//     !
+//  * FullCalendar v1.6.4
+//  * Docs & License: http://arshaw.com/fullcalendar/
+//  * (c) 2013 Adam Shaw
+//  */
 
-/*
- * Use fullcalendar.css for basic styling.
- * For event drag & drop, requires jQuery UI draggable.
- * For event resizing, requires jQuery UI resizable.
- */
- 
+// /*
+//  * Use fullcalendar.css for basic styling.
+//  * For event drag & drop, requires jQuery UI draggable.
+//  * For event resizing, requires jQuery UI resizable.
+//
+
 (function($, undefined) {
 
 
@@ -523,20 +525,20 @@ var defaults = {
 	weekNumbers: false,
 	weekNumberCalculation: 'iso',
 	weekNumberTitle: 'W',
-	
+
 	// editing
 	//editable: false,
 	//disableDragging: false,
 	//disableResizing: false,
-	
+
 	allDayDefault: true,
 	ignoreTimezone: true,
-	
+
 	// event ajax
 	lazyFetching: true,
 	startParam: 'start',
 	endParam: 'end',
-	
+
 	// time formats
 	titleFormat: {
 		month: 'MMMM yyyy',
@@ -551,7 +553,7 @@ var defaults = {
 	timeFormat: { // for event elements
 		'': 'h(:mm)t' // default
 	},
-	
+
 	// locale
 	isRTL: false,
 	firstDay: 0,
@@ -569,21 +571,21 @@ var defaults = {
 		week: 'week',
 		day: 'day'
 	},
-	
+
 	// jquery-ui theming
 	theme: false,
 	buttonIcons: {
 		prev: 'circle-triangle-w',
 		next: 'circle-triangle-e'
 	},
-	
+
 	//selectable: false,
 	unselectAuto: true,
-	
+
 	dropAccept: '*',
-	
+
 	handleWindowResize: true
-	
+
 };
 
 // right-to-left defaults
@@ -639,7 +641,7 @@ $.fn.fullCalendar = function(options) {
 	}
 
 	options = options || {};
-	
+
 	// would like to have this logic in EventManager, but needs to happen before options are recursively extended
 	var eventSources = options.eventSources || [];
 	delete options.eventSources;
@@ -647,25 +649,25 @@ $.fn.fullCalendar = function(options) {
 		eventSources.push(options.events);
 		delete options.events;
 	}
-	
+
 
 	options = $.extend(true, {},
 		defaults,
 		(options.isRTL || options.isRTL===undefined && defaults.isRTL) ? rtlDefaults : {},
 		options
 	);
-	
-	
+
+
 	this.each(function(i, _element) {
 		var element = $(_element);
 		var calendar = new Calendar(element, options, eventSources);
 		element.data('fullCalendar', calendar); // TODO: look into memory leak implications
 		calendar.render();
 	});
-	
-	
+
+
 	return this;
-	
+
 };
 
 
@@ -678,11 +680,11 @@ function setDefaults(d) {
 
 ;;
 
- 
+
 function Calendar(element, options, eventSources) {
 	var t = this;
-	
-	
+
+
 	// exports
 	t.options = options;
 	t.render = render;
@@ -707,14 +709,14 @@ function Calendar(element, options, eventSources) {
 	t.getView = getView;
 	t.option = option;
 	t.trigger = trigger;
-	
-	
+
+
 	// imports
 	EventManager.call(t, options, eventSources);
 	var isFetchNeeded = t.isFetchNeeded;
 	var fetchEvents = t.fetchEvents;
-	
-	
+
+
 	// locals
 	var _element = element[0];
 	var header;
@@ -729,16 +731,16 @@ function Calendar(element, options, eventSources) {
 	var date = new Date();
 	var events = [];
 	var _dragElement;
-	
-	
-	
+
+
+
 	/* Main Rendering
 	-----------------------------------------------------------------------------*/
-	
-	
+
+
 	setYMD(date, options.year, options.month, options.date);
-	
-	
+
+
 	function render(inc) {
 		if (!content) {
 			initialRender();
@@ -749,8 +751,8 @@ function Calendar(element, options, eventSources) {
 			_renderView(inc);
 		}
 	}
-	
-	
+
+
 	function initialRender() {
 		tm = options.theme ? 'ui' : 'fc';
 		element.addClass('fc');
@@ -784,8 +786,8 @@ function Calendar(element, options, eventSources) {
 			lateRender();
 		}
 	}
-	
-	
+
+
 	// called when we know the calendar couldn't be rendered when it was initialized,
 	// but we think it's ready now
 	function lateRender() {
@@ -795,8 +797,8 @@ function Calendar(element, options, eventSources) {
 			}
 		},0);
 	}
-	
-	
+
+
 	function destroy() {
 
 		if (currentView) {
@@ -810,22 +812,22 @@ function Calendar(element, options, eventSources) {
 		content.remove();
 		element.removeClass('fc fc-rtl ui-widget');
 	}
-	
-	
+
+
 	function elementVisible() {
 		return element.is(':visible');
 	}
-	
-	
+
+
 	function bodyVisible() {
 		return $('body').is(':visible');
 	}
-	
-	
-	
+
+
+
 	/* View Rendering
 	-----------------------------------------------------------------------------*/
-	
+
 
 	function changeView(newViewName) {
 		if (!currentView || newViewName != currentView.name) {
@@ -898,13 +900,13 @@ function Calendar(element, options, eventSources) {
 
 		getAndRenderEvents();
 	}
-	
-	
+
+
 
 	/* Resizing
 	-----------------------------------------------------------------------------*/
-	
-	
+
+
 	function updateSize() {
 		if (elementVisible()) {
 			unselect();
@@ -914,7 +916,7 @@ function Calendar(element, options, eventSources) {
 			renderEvents();
 		}
 	}
-	
+
 	
 	function calcSize() { // assumes elementVisible
 		if (options.contentHeight) {
@@ -927,8 +929,8 @@ function Calendar(element, options, eventSources) {
 			suggestedViewHeight = Math.round(content.width() / Math.max(options.aspectRatio, .5));
 		}
 	}
-	
-	
+
+
 	function setSize() { // assumes elementVisible
 
 		if (suggestedViewHeight === undefined) {
@@ -944,8 +946,8 @@ function Calendar(element, options, eventSources) {
 
 		elementOuterWidth = element.outerWidth();
 	}
-	
-	
+
+
 	function windowResize() {
 		if (!ignoreWindowResize) {
 			if (currentView.start) { // view has already been rendered
@@ -966,9 +968,9 @@ function Calendar(element, options, eventSources) {
 			}
 		}
 	}
-	
-	
-	
+
+
+
 	/* Event Fetching/Rendering
 	-----------------------------------------------------------------------------*/
 	// TODO: going forward, most of this stuff should be directly handled by the view
@@ -1000,7 +1002,7 @@ function Calendar(element, options, eventSources) {
 		currentView.clearEvents(); // actually remove the DOM elements
 		currentView.clearEventData(); // for View.js, TODO: unify with clearEvents
 	}
-	
+
 
 	function getAndRenderEvents() {
 		if (!options.lazyFetching || isFetchNeeded(currentView.visStart, currentView.visEnd)) {
@@ -1018,7 +1020,7 @@ function Calendar(element, options, eventSources) {
 			// ... which will call renderEvents
 	}
 
-	
+
 	// called when event data arrives
 	function reportEvents(_events) {
 		events = _events;
@@ -1051,58 +1053,58 @@ function Calendar(element, options, eventSources) {
 			header.enableButton('today');
 		}
 	}
-	
+
 
 
 	/* Selection
 	-----------------------------------------------------------------------------*/
-	
+
 
 	function select(start, end, allDay) {
 		currentView.select(start, end, allDay===undefined ? true : allDay);
 	}
-	
+
 
 	function unselect() { // safe to be called before renderView
 		if (currentView) {
 			currentView.unselect();
 		}
 	}
-	
-	
-	
+
+
+
 	/* Date
 	-----------------------------------------------------------------------------*/
-	
-	
+
+
 	function prev() {
 		renderView(-1);
 	}
-	
-	
+
+
 	function next() {
 		renderView(1);
 	}
-	
-	
+
+
 	function prevYear() {
 		addYears(date, -1);
 		renderView();
 	}
-	
-	
+
+
 	function nextYear() {
 		addYears(date, 1);
 		renderView();
 	}
-	
-	
+
+
 	function today() {
 		date = new Date();
 		renderView();
 	}
-	
-	
+
+
 	function gotoDate(year, month, dateOfMonth) {
 		if (year instanceof Date) {
 			date = cloneDate(year); // provided 1 argument, a Date
@@ -1111,8 +1113,8 @@ function Calendar(element, options, eventSources) {
 		}
 		renderView();
 	}
-	
-	
+
+
 	function incrementDate(years, months, days) {
 		if (years !== undefined) {
 			addYears(date, years);
@@ -1125,8 +1127,8 @@ function Calendar(element, options, eventSources) {
 		}
 		renderView();
 	}
-	
-	
+
+
 	function getDate() {
 		return cloneDate(date);
 	}
@@ -1153,18 +1155,18 @@ function Calendar(element, options, eventSources) {
 			overflow: ''
 		});
 	}
-	
-	
-	
+
+
+
 	/* Misc
 	-----------------------------------------------------------------------------*/
-	
-	
+
+
 	function getView() {
 		return currentView;
 	}
-	
-	
+
+
 	function option(name, value) {
 		if (value === undefined) {
 			return options[name];
@@ -1174,8 +1176,8 @@ function Calendar(element, options, eventSources) {
 			updateSize();
 		}
 	}
-	
-	
+
+
 	function trigger(name, thisObj) {
 		if (options[name]) {
 			return options[name].apply(
@@ -1184,12 +1186,12 @@ function Calendar(element, options, eventSources) {
 			);
 		}
 	}
+
 	
-	
-	
+
 	/* External Dragging
 	------------------------------------------------------------------------*/
-	
+
 	if (options.droppable) {
 		$(document)
 			.bind('dragstart', function(ev, ui) {
@@ -1210,7 +1212,7 @@ function Calendar(element, options, eventSources) {
 				}
 			});
 	}
-	
+
 
 }
 
@@ -1218,8 +1220,8 @@ function Calendar(element, options, eventSources) {
 
 function Header(calendar, options) {
 	var t = this;
-	
-	
+
+
 	// exports
 	t.render = render;
 	t.destroy = destroy;
@@ -1228,12 +1230,12 @@ function Header(calendar, options) {
 	t.deactivateButton = deactivateButton;
 	t.disableButton = disableButton;
 	t.enableButton = enableButton;
-	
-	
+
+
 	// locals
 	var element = $([]);
 	var tm;
-	
+
 
 
 	function render() {
@@ -1250,13 +1252,13 @@ function Header(calendar, options) {
 			return element;
 		}
 	}
-	
-	
+
+
 	function destroy() {
 		element.remove();
 	}
-	
-	
+
+
 	function renderSection(position) {
 		var e = $("<td class='fc-header-" + position + "'/>");
 		var buttonStr = options.header[position];
@@ -1340,31 +1342,31 @@ function Header(calendar, options) {
 		}
 		return e;
 	}
-	
-	
+
+
 	function updateTitle(html) {
 		element.find('h2')
 			.html(html);
 	}
-	
-	
+
+
 	function activateButton(buttonName) {
 		element.find('span.fc-button-' + buttonName)
 			.addClass(tm + '-state-active');
 	}
-	
-	
+
+
 	function deactivateButton(buttonName) {
 		element.find('span.fc-button-' + buttonName)
 			.removeClass(tm + '-state-active');
 	}
-	
-	
+
+
 	function disableButton(buttonName) {
 		element.find('span.fc-button-' + buttonName)
 			.addClass(tm + '-state-disabled');
 	}
-	
+
 	
 	function enableButton(buttonName) {
 		element.find('span.fc-button-' + buttonName)
@@ -1389,8 +1391,8 @@ var eventGUID = 1;
 
 function EventManager(options, _sources) {
 	var t = this;
-	
-	
+
+
 	// exports
 	t.isFetchNeeded = isFetchNeeded;
 	t.fetchEvents = fetchEvents;
@@ -1401,14 +1403,14 @@ function EventManager(options, _sources) {
 	t.removeEvents = removeEvents;
 	t.clientEvents = clientEvents;
 	t.normalizeEvent = normalizeEvent;
-	
-	
+
+
 	// imports
 	var trigger = t.trigger;
 	var getView = t.getView;
 	var reportEvents = t.reportEvents;
-	
-	
+
+
 	// locals
 	var stickySource = { events: [] };
 	var sources = [ stickySource ];
@@ -1417,23 +1419,23 @@ function EventManager(options, _sources) {
 	var pendingSourceCnt = 0;
 	var loadingLevel = 0;
 	var cache = [];
-	
-	
+
+
 	for (var i=0; i<_sources.length; i++) {
 		_addEventSource(_sources[i]);
 	}
-	
-	
+
+
 	
 	/* Fetching
 	-----------------------------------------------------------------------------*/
-	
-	
+
+
 	function isFetchNeeded(start, end) {
 		return !rangeStart || start < rangeStart || end > rangeEnd;
 	}
-	
-	
+
+
 	function fetchEvents(start, end) {
 		rangeStart = start;
 		rangeEnd = end;
@@ -1445,8 +1447,8 @@ function EventManager(options, _sources) {
 			fetchEventSource(sources[i], fetchID);
 		}
 	}
-	
-	
+
+
 	function fetchEventSource(source, fetchID) {
 		_fetchEventSource(source, function(events) {
 			if (fetchID == currentFetchID) {
@@ -1460,7 +1462,7 @@ function EventManager(options, _sources) {
 					}
 					// TODO: this technique is not ideal for static array event sources.
 					//  For arrays, we'll want to process all events right in the beginning, then never again.
-				
+
 					for (var i=0; i<events.length; i++) {
 						events[i].source = source;
 						normalizeEvent(events[i]);
@@ -1474,8 +1476,8 @@ function EventManager(options, _sources) {
 			}
 		});
 	}
-	
-	
+
+
 	function _fetchEventSource(source, callback) {
 		var i;
 		var fetchers = fc.sourceFetchers;
@@ -1563,12 +1565,12 @@ function EventManager(options, _sources) {
 			}
 		}
 	}
-	
-	
-	
+
+
+
 	/* Sources
 	-----------------------------------------------------------------------------*/
-	
+
 
 	function addEventSource(source) {
 		source = _addEventSource(source);
@@ -1577,8 +1579,8 @@ function EventManager(options, _sources) {
 			fetchEventSource(source, currentFetchID); // will eventually call reportEvents
 		}
 	}
-	
-	
+
+
 	function _addEventSource(source) {
 		if ($.isFunction(source) || $.isArray(source)) {
 			source = { events: source };
@@ -1592,7 +1594,7 @@ function EventManager(options, _sources) {
 			return source;
 		}
 	}
-	
+
 
 	function removeEventSource(source) {
 		sources = $.grep(sources, function(src) {
@@ -1604,13 +1606,13 @@ function EventManager(options, _sources) {
 		});
 		reportEvents(cache);
 	}
-	
-	
-	
+
+
+
 	/* Manipulation
 	-----------------------------------------------------------------------------*/
-	
-	
+
+
 	function updateEvent(event) { // update an existing event
 		var i, len = cache.length, e,
 			defaultEventEnd = getView().defaultEventEnd, // getView???
@@ -1646,8 +1648,8 @@ function EventManager(options, _sources) {
 		normalizeEvent(event);
 		reportEvents(cache);
 	}
-	
-	
+
+
 	function renderEvent(event, stick) {
 		normalizeEvent(event);
 		if (!event.source) {
@@ -1659,8 +1661,8 @@ function EventManager(options, _sources) {
 		}
 		reportEvents(cache);
 	}
-	
-	
+
+
 	function removeEvents(filter) {
 		if (!filter) { // remove all
 			cache = [];
@@ -1687,8 +1689,8 @@ function EventManager(options, _sources) {
 		}
 		reportEvents(cache);
 	}
-	
-	
+
+
 	function clientEvents(filter) {
 		if ($.isFunction(filter)) {
 			return $.grep(cache, filter);
@@ -1701,32 +1703,32 @@ function EventManager(options, _sources) {
 		}
 		return cache; // else, return all
 	}
-	
-	
-	
+
+
+
 	/* Loading State
 	-----------------------------------------------------------------------------*/
-	
-	
+
+
 	function pushLoading() {
 		if (!loadingLevel++) {
 			trigger('loading', null, true, getView());
 		}
 	}
-	
+
 	
 	function popLoading() {
 		if (!--loadingLevel) {
 			trigger('loading', null, false, getView());
 		}
 	}
+
 	
-	
-	
+
 	/* Event Normalization
 	-----------------------------------------------------------------------------*/
-	
-	
+
+
 	function normalizeEvent(event) {
 		var source = event.source || {};
 		var ignoreTimezone = firstDefined(source.ignoreTimezone, options.ignoreTimezone);
@@ -1755,12 +1757,12 @@ function EventManager(options, _sources) {
 		}
 		// TODO: if there is no start date, return false to indicate an invalid event
 	}
-	
+
 	
 	
 	/* Utils
 	------------------------------------------------------------------------------*/
-	
+
 	
 	function normalizeSource(source) {
 		if (source.className) {
@@ -1776,13 +1778,13 @@ function EventManager(options, _sources) {
 			normalizers[i](source);
 		}
 	}
-	
-	
+
+
 	function isSourcesEqual(source1, source2) {
 		return source1 && source2 && getSourcePrimitive(source1) == getSourcePrimitive(source2);
 	}
-	
-	
+
+
 	function getSourcePrimitive(source) {
 		return ((typeof source == 'object') ? (source.events || source.url) : '') || source;
 	}
@@ -1810,7 +1812,7 @@ var dayIDs = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
 	DAY_MS = 86400000,
 	HOUR_MS = 3600000,
 	MINUTE_MS = 60000;
-	
+
 
 function addYears(d, n, keepTime) {
 	d.setFullYear(d.getFullYear() + n);
@@ -1873,7 +1875,7 @@ function addMinutes(d, n) {
 function clearTime(d) {
 	d.setHours(0);
 	d.setMinutes(0);
-	d.setSeconds(0); 
+	d.setSeconds(0);
 	d.setMilliseconds(0);
 	return d;
 }
@@ -2149,7 +2151,7 @@ fc.dateFormatters = dateFormatters;
 
 
 /* thanks jQuery UI (https://github.com/jquery/jquery-ui/blob/master/ui/jquery.ui.datepicker.js)
- * 
+ *
  * Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
  * `date` - the date to get the week for
  * `number` - the number of the week within the year that contains this date
@@ -2441,12 +2443,12 @@ fcViews.month = MonthView;
 
 function MonthView(element, calendar) {
 	var t = this;
-	
-	
+
+
 	// exports
 	t.render = render;
-	
-	
+
+
 	// imports
 	BasicView.call(t, element, calendar, 'month');
 	var opt = t.opt;
@@ -2454,8 +2456,8 @@ function MonthView(element, calendar) {
 	var skipHiddenDays = t.skipHiddenDays;
 	var getCellsPerWeek = t.getCellsPerWeek;
 	var formatDate = calendar.formatDate;
-	
-	
+
+
 	function render(date, delta) {
 
 		if (delta) {
@@ -2495,8 +2497,8 @@ function MonthView(element, calendar) {
 
 		renderBasic(rowCnt, colCnt, true);
 	}
-	
-	
+
+
 }
 
 ;;
@@ -2505,12 +2507,12 @@ fcViews.basicWeek = BasicWeekView;
 
 function BasicWeekView(element, calendar) {
 	var t = this;
-	
-	
+
+
 	// exports
 	t.render = render;
-	
-	
+
+
 	// imports
 	BasicView.call(t, element, calendar, 'basicWeek');
 	var opt = t.opt;
@@ -2518,8 +2520,8 @@ function BasicWeekView(element, calendar) {
 	var skipHiddenDays = t.skipHiddenDays;
 	var getCellsPerWeek = t.getCellsPerWeek;
 	var formatDates = calendar.formatDates;
-	
-	
+
+
 	function render(date, delta) {
 
 		if (delta) {
@@ -2550,7 +2552,7 @@ function BasicWeekView(element, calendar) {
 
 		renderBasic(1, colCnt, false);
 	}
-	
+
 	
 }
 
@@ -2562,7 +2564,7 @@ fcViews.basicDay = BasicDayView;
 function BasicDayView(element, calendar) {
 	var t = this;
 	
-	
+
 	// exports
 	t.render = render;
 	
@@ -5057,21 +5059,21 @@ function View(element, calendar, viewName) {
 	// t.start, t.end
 	// t.visStart, t.visEnd
 	
-	
+
 	// imports
 	var defaultEventEnd = t.defaultEventEnd;
 	var normalizeEvent = calendar.normalizeEvent; // in EventManager
 	var reportEventChange = calendar.reportEventChange;
-	
-	
+
+
 	// locals
 	var eventsByID = {}; // eventID mapped to array of events (there can be multiple b/c of repeating events)
 	var eventElementsByID = {}; // eventID mapped to array of jQuery elements
 	var eventElementCouples = []; // array of objects, { event, element } // TODO: unify with segment system
 	var options = calendar.options;
 	
-	
-	
+
+
 	function opt(name, viewNameOverride) {
 		var v = options[name];
 		if ($.isPlainObject(v)) {
@@ -5080,20 +5082,20 @@ function View(element, calendar, viewName) {
 		return v;
 	}
 
-	
+
 	function trigger(name, thisObj) {
 		return calendar.trigger.apply(
 			calendar,
 			[name, thisObj || t].concat(Array.prototype.slice.call(arguments, 2), [t])
 		);
 	}
-	
+
 
 
 	/* Event Editable Boolean Calculations
 	------------------------------------------------------------------------------*/
 
-	
+
 	function isEventDraggable(event) {
 		var source = event.source || {};
 		return firstDefined(
@@ -5106,8 +5108,8 @@ function View(element, calendar, viewName) {
 			)
 			&& !opt('disableDragging'); // deprecated
 	}
-	
-	
+
+
 	function isEventResizable(event) { // but also need to make sure the seg.isEnd == true
 		var source = event.source || {};
 		return firstDefined(
@@ -5120,13 +5122,13 @@ function View(element, calendar, viewName) {
 			)
 			&& !opt('disableResizing'); // deprecated
 	}
-	
-	
-	
+
+
+
 	/* Event Data
 	------------------------------------------------------------------------------*/
-	
-	
+
+
 	function setEventData(events) { // events are already normalized at this point
 		eventsByID = {};
 		var i, len=events.length, event;
@@ -5147,18 +5149,18 @@ function View(element, calendar, viewName) {
 		eventElementCouples = [];
 	}
 	
-	
+
 	// returns a Date object for an event's end
 	function eventEnd(event) {
 		return event.end ? cloneDate(event.end) : defaultEventEnd(event);
 	}
-	
-	
-	
+
+
+
 	/* Event Elements
 	------------------------------------------------------------------------------*/
-	
-	
+
+
 	// report when view creates an element for an event
 	function reportEventElement(event, element) {
 		eventElementCouples.push({ event: event, element: element });
@@ -5175,8 +5177,8 @@ function View(element, calendar, viewName) {
 			t.trigger('eventDestroy', couple.event, couple.event, couple.element);
 		});
 	}
-	
-	
+
+
 	// attaches eventClick, eventMouseover, eventMouseout
 	function eventElementHandlers(event, eventElement) {
 		eventElement
@@ -5197,18 +5199,18 @@ function View(element, calendar, viewName) {
 		// TODO: don't fire eventMouseover/eventMouseout *while* dragging is occuring (on subject element)
 		// TODO: same for resizing
 	}
-	
-	
+
+
 	function showEvents(event, exceptElement) {
 		eachEventElement(event, exceptElement, 'show');
 	}
 	
-	
+
 	function hideEvents(event, exceptElement) {
 		eachEventElement(event, exceptElement, 'hide');
 	}
 	
-	
+
 	function eachEventElement(event, exceptElement, funcName) {
 		// NOTE: there may be multiple events per ID (repeating events)
 		// and multiple segments per event
@@ -5222,11 +5224,11 @@ function View(element, calendar, viewName) {
 	}
 	
 	
-	
+
 	/* Event Modification Reporting
 	---------------------------------------------------------------------------------*/
-	
-	
+
+
 	function eventDrop(e, event, dayDelta, minuteDelta, allDay, ev, ui) {
 		var oldAllDay = event.allDay;
 		var eventId = event._id;
@@ -5248,8 +5250,8 @@ function View(element, calendar, viewName) {
 		);
 		reportEventChange(eventId);
 	}
-	
-	
+
+
 	function eventResize(e, event, dayDelta, minuteDelta, ev, ui) {
 		var eventId = event._id;
 		elongateEvents(eventsByID[eventId], dayDelta, minuteDelta);
@@ -5269,13 +5271,13 @@ function View(element, calendar, viewName) {
 		);
 		reportEventChange(eventId);
 	}
-	
-	
-	
+
+
+
 	/* Event Modification Math
 	---------------------------------------------------------------------------------*/
-	
-	
+
+
 	function moveEvents(events, dayDelta, minuteDelta, allDay) {
 		minuteDelta = minuteDelta || 0;
 		for (var e, len=events.length, i=0; i<len; i++) {
@@ -5290,8 +5292,8 @@ function View(element, calendar, viewName) {
 			normalizeEvent(e, options);
 		}
 	}
-	
-	
+
+
 	function elongateEvents(events, dayDelta, minuteDelta) {
 		minuteDelta = minuteDelta || 0;
 		for (var e, len=events.length, i=0; i<len; i++) {
@@ -5566,7 +5568,7 @@ function View(element, calendar, viewName) {
 
 		return segments;
 	}
-	
+
 
 }
 
@@ -5575,13 +5577,13 @@ function View(element, calendar, viewName) {
 function DayEventRenderer() {
 	var t = this;
 
-	
+
 	// exports
 	t.renderDayEvents = renderDayEvents;
 	t.draggableDayEvent = draggableDayEvent; // made public so that subclasses can override
 	t.resizableDayEvent = resizableDayEvent; // "
-	
-	
+
+
 	// imports
 	var opt = t.opt;
 	var trigger = t.trigger;
@@ -6138,7 +6140,7 @@ function DayEventRenderer() {
 		eventElementHandlers(event, eventElement);
 	}
 
-	
+
 	function draggableDayEvent(event, eventElement) {
 		var hoverListener = getHoverListener();
 		var dayDelta;
@@ -6179,13 +6181,13 @@ function DayEventRenderer() {
 		});
 	}
 
-	
+
 	function resizableDayEvent(event, element, segment) {
 		var isRTL = opt('isRTL');
 		var direction = isRTL ? 'w' : 'e';
 		var handle = element.find('.ui-resizable-' + direction); // TODO: stop using this class because we aren't using jqui for this
 		var isResizing = false;
-		
+
 		// TODO: look into using jquery-ui mouse widget for this stuff
 		disableTextSelection(element); // prevent native <a> selection for IE
 		element
@@ -6199,7 +6201,7 @@ function DayEventRenderer() {
 					                               // (eventElementHandlers needs to be bound after resizableDayEvent)
 				}
 			});
-		
+
 		handle.mousedown(function(ev) {
 			if (ev.which != 1) {
 				return; // needs to be left mouse button
@@ -6261,7 +6263,7 @@ function DayEventRenderer() {
 					);
 				}
 			}, ev);
-			
+
 			function mouseup(ev) {
 				trigger('eventResizeStop', this, event, ev);
 				$('body').css('cursor', '');
@@ -6272,14 +6274,14 @@ function DayEventRenderer() {
 					// event redraw will clear helpers
 				}
 				// otherwise, the drag handler already restored the old events
-				
+
 				setTimeout(function() { // make this happen after the element's click event
 					isResizing = false;
 				},0);
 			}
 		});
 	}
-	
+
 
 }
 
@@ -6329,23 +6331,23 @@ function compareDaySegments(a, b) {
 
 function SelectionManager() {
 	var t = this;
-	
-	
+
+
 	// exports
 	t.select = select;
 	t.unselect = unselect;
 	t.reportSelection = reportSelection;
 	t.daySelectionMousedown = daySelectionMousedown;
-	
-	
+
+
 	// imports
 	var opt = t.opt;
 	var trigger = t.trigger;
 	var defaultSelectionEnd = t.defaultSelectionEnd;
 	var renderSelection = t.renderSelection;
 	var clearSelection = t.clearSelection;
-	
-	
+
+
 	// locals
 	var selected = false;
 
@@ -6363,7 +6365,7 @@ function SelectionManager() {
 			unselect(ev);
 		});
 	}
-	
+
 
 	function select(startDate, endDate, allDay) {
 		unselect();
@@ -6373,8 +6375,8 @@ function SelectionManager() {
 		renderSelection(startDate, endDate, allDay);
 		reportSelection(startDate, endDate, allDay);
 	}
-	
-	
+
+
 	function unselect(ev) {
 		if (selected) {
 			selected = false;
@@ -6382,14 +6384,14 @@ function SelectionManager() {
 			trigger('unselect', null, ev);
 		}
 	}
-	
-	
+
+
 	function reportSelection(startDate, endDate, allDay, ev) {
 		selected = true;
 		trigger('select', null, startDate, endDate, allDay, ev);
 	}
-	
-	
+
+
 	function daySelectionMousedown(ev) { // not really a generic manager method, oh well
 		var cellToDate = t.cellToDate;
 		var getIsCellAllDay = t.getIsCellAllDay;
@@ -6424,21 +6426,21 @@ function SelectionManager() {
 }
 
 ;;
- 
+
 function OverlayManager() {
 	var t = this;
-	
-	
+
+
 	// exports
 	t.renderOverlay = renderOverlay;
 	t.clearOverlays = clearOverlays;
-	
-	
+
+
 	// locals
 	var usedOverlays = [];
 	var unusedOverlays = [];
-	
-	
+
+
 	function renderOverlay(rect, parent) {
 		var e = unusedOverlays.shift();
 		if (!e) {
@@ -6450,7 +6452,7 @@ function OverlayManager() {
 		usedOverlays.push(e.css(rect).show());
 		return e;
 	}
-	
+
 
 	function clearOverlays() {
 		var e;
@@ -6469,15 +6471,15 @@ function CoordinateGrid(buildFunc) {
 	var t = this;
 	var rows;
 	var cols;
-	
-	
+
+
 	t.build = function() {
 		rows = [];
 		cols = [];
 		buildFunc(rows, cols);
 	};
-	
-	
+
+
 	t.cell = function(x, y) {
 		var rowCnt = rows.length;
 		var colCnt = cols.length;
@@ -6496,8 +6498,8 @@ function CoordinateGrid(buildFunc) {
 		}
 		return (r>=0 && c>=0) ? { row:r, col:c } : null;
 	};
-	
-	
+
+
 	t.rect = function(row0, col0, row1, col1, originElement) { // row1,col1 is inclusive
 		var origin = originElement.offset();
 		return {
@@ -6520,8 +6522,8 @@ function HoverListener(coordinateGrid) {
 	var change;
 	var firstCell;
 	var cell;
-	
-	
+
+
 	t.start = function(_change, ev, _bindType) {
 		change = _change;
 		firstCell = cell = null;
@@ -6530,8 +6532,8 @@ function HoverListener(coordinateGrid) {
 		bindType = _bindType || 'mousemove';
 		$(document).bind(bindType, mouse);
 	};
-	
-	
+
+
 	function mouse(ev) {
 		_fixUIEvent(ev); // see below
 		var newCell = coordinateGrid.cell(ev.pageX, ev.pageY);
@@ -6547,14 +6549,14 @@ function HoverListener(coordinateGrid) {
 			cell = newCell;
 		}
 	}
-	
-	
+
+
 	t.stop = function() {
 		$(document).unbind(bindType, mouse);
 		return cell;
 	};
-	
-	
+
+
 }
 
 
@@ -6578,37 +6580,39 @@ function HorizontalPositionCache(getElement) {
 		elements = {},
 		lefts = {},
 		rights = {};
-		
+
 	function e(i) {
 		return elements[i] = elements[i] || getElement(i);
 	}
-	
+
 	t.left = function(i) {
 		return lefts[i] = lefts[i] === undefined ? e(i).position().left : lefts[i];
 	};
-	
+
 	t.right = function(i) {
 		return rights[i] = rights[i] === undefined ? t.left(i) + e(i).width() : rights[i];
 	};
-	
+
 	t.clear = function() {
 		elements = {};
 		lefts = {};
 		rights = {};
 	};
-	
+
 }
 
 ;;
 
 })(jQuery);
 </script>
-<script src="../jquery.min.js"></script>
 <script type="text/javascript">
+
     $(window).on('load resize',function(){
         if($(window).width() < 950){
             window.location = "../Mobile/index.html"
         }
     });
 </script>
+
+
 </html>
