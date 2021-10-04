@@ -229,9 +229,9 @@ margin-left:-10px;
 
 .grid:hover{
     opacity:0.8;
-    height:237px;
-    margin-top:-237px;
-    padding-top:30px;
+    height:190px;
+    margin-top:-190px;
+    padding-top:15px;
     background-color:rgb(43, 43, 82);
 
 }
@@ -618,7 +618,7 @@ padding-top:40px;
     height:100px;
     width:95px;
     margin-top:65px;
-    margin-left:20px;
+    margin-left:10px !important;
     font-size:8px;
     font-weight:bold;
     padding:5px;
@@ -634,6 +634,8 @@ padding-top:40px;
 	left:10%;
 	background-color:white;
 	clip-path: polygon(0 0, 100% 0, 100% 100%);
+    margin-left:0px !important;
+
 
 }
 
@@ -646,7 +648,9 @@ padding-top:40px;
     height:100px;
     width:95px;
     margin-top:35px;
-    margin-right:20px;
+    margin-right:0px !important;
+    margin-left:-14px !important;
+
     font-size:8px;
     font-weight:bold;
     padding:5px;
@@ -674,7 +678,9 @@ padding-top:40px;
     height:100px;
     width:95px;
     margin-top:65px;
-    margin-right:0px;
+    margin-right:0px !important;
+    margin-left:-30px !important;
+
     font-size:8px;
     font-weight:bold;
     padding:5px;
@@ -866,7 +872,7 @@ footer h6{
     right: 0;
     border-radius: 3px 0 0 3px;
   }
-  
+
   .affiliations{
     /* margin-top:140px; */
     /* padding-left:40px; */
