@@ -89,6 +89,7 @@ font-family:Avenir-Book !important;
   box-shadow:0 20px 0 0px #333 !important;
   height:60px;
   top:0px;
+  margin-top:5px !important;
   overflow:visible;
   z-index:999;
   position:relative;
